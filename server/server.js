@@ -10,7 +10,10 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 connectDB();
 
-const allowedOrigins = ['http://localhost:5173']
+// Allow frontend URL(s). In production set FRONTEND_URL in env (e.g. https://your-app.vercel.app)
+const allowedOrigins = process.env.FRONTEND_URL
+  ? process.env.FRONTEND_URL.split(",").map((u) => u.trim())
+  : ["http://localhost:5173"];
 
 app.use(express.json());
 app.use(cookieParser());
