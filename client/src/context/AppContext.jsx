@@ -9,7 +9,7 @@ export const AppContextProvider = (props) => {
   // eslint-disable-next-line react-hooks/immutability
   axios.defaults.withCredentials = true;
 
-  const backendUrl = "https://authentication-system-1-doab.onrender.com";
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(false);
 
